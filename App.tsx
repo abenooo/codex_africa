@@ -12,11 +12,11 @@ const App: React.FC = () => {
     <div className="min-h-screen bg-[#f8f9fa] pb-24">
       <Navbar />
       {/* Hero Section */}
-      <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
-        <div className="card-stack space-y-12">
+      {/* <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
+        <div className="card-stack space-y-12"> */}
           <Hero />
-        </div>
-      </main>
+        {/* </div>
+      </main> */}
 
       {/* Process Timeline Section */}
       <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">

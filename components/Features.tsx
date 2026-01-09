@@ -48,30 +48,37 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ country, title, bgCol
  const Features: React.FC = () => {
   const destinations = [
     {
-      country: 'Best in Switzerland',
-      title: 'Visit the breathtaking Swiss Alps',
-      bgColor: '#FFF0F3',
-      imgUrl: 'https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&q=80&w=1200'
+      country: 'CORE PLATFORM',
+      title: 'Digital Member Management',
+      bgColor: '#F4F7FF',
+      imgUrl: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=1200'
     },
     {
-      country: 'Best in Netherlands',
-      title: 'See the rivers in Amsterdam',
-      bgColor: '#F0F3FF',
-      imgUrl: 'https://images.unsplash.com/photo-1512470876302-972fad2aa9dd?auto=format&fit=crop&q=80&w=1200'
+      country: 'SAVINGS & LOANS',
+      title: 'Automated Savings & Loan Management',
+      bgColor: '#F0FBF7',
+      imgUrl: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80&w=1200'
     },
     {
-      country: 'Best in Japan',
-      title: 'Explore the neon lights of Tokyo',
-      bgColor: '#FDFCF0',
-      imgUrl: 'https://images.unsplash.com/photo-1540959733332-e94e270b4d82?auto=format&fit=crop&q=80&w=1200'
+      country: 'GOVERNANCE',
+      title: 'Approval Workflows & Strong Controls',
+      bgColor: '#FFF6ED',
+      imgUrl: 'https://images.unsplash.com/photo-1553877522-43269d4ea984?auto=format&fit=crop&q=80&w=1200'
     },
     {
-      country: 'Best in Iceland',
-      title: 'Chasing the Aurora Borealis',
-      bgColor: '#F3F9F5',
-      imgUrl: 'https://images.unsplash.com/photo-1483347756197-71ef80e95f73?auto=format&fit=crop&q=80&w=1200'
+      country: 'REPORTING',
+      title: 'Transparent Reports & General Ledger',
+      bgColor: '#F7F7F7',
+      imgUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200'
+    },
+    {
+      country: 'PAYMENTS',
+      title: 'Digital Payments via Telebirr & Banks',
+      bgColor: '#EEF3FF',
+      imgUrl: 'https://images.unsplash.com/photo-1563013544-824ae1b704d3?auto=format&fit=crop&q=80&w=1200'
     }
   ];
+  
 
   return (
     <>
