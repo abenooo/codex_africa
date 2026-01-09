@@ -26,10 +26,10 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ country, title, bgCol
           </h2>
           <div className="flex flex-wrap gap-4">
             <button className="px-8 py-4 bg-[#2D0A31] text-white rounded-full font-black text-sm hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#2D0A31]/20">
-              Book your trip
+              Book Now
             </button>
             <button className="px-8 py-4 border-2 border-[#2D0A31] text-[#2D0A31] rounded-full font-black text-sm hover:bg-[#2D0A31] hover:text-white transition-all">
-              Learn more
+              Request a Demo
             </button>
           </div>
         </div>
