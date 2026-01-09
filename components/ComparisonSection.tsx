@@ -68,7 +68,7 @@ const ComparisonSection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-20 sm:py-32 overflow-hidden">
+    <section id="comparison" className="bg-white py-20 sm:py-32 overflow-hidden">
       <div className="max-w-[100rem] mx-auto px-4 sm:px-6 lg:px-12">
         
         {/* Header Block */}

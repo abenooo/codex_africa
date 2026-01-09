@@ -52,7 +52,7 @@ const ValueDelaySection: React.FC = () => {
   ];
 
   return (
-    <section className="bg-white py-24 sm:py-40 relative overflow-hidden">
+    <section id="value-delay" className="bg-white py-24 sm:py-40 relative overflow-hidden">
       {/* Background Subtle Elements */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">
         <div className="h-full w-[1px] bg-emerald-500/5 absolute left-1/4"></div>

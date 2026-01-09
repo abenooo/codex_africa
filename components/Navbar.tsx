@@ -17,6 +17,22 @@ const Navbar: React.FC = () => {
 
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
+  const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    e.preventDefault();
+    const element = document.querySelector(href);
+    if (element) {
+      const offset = 100; // Account for fixed navbar height
+      const elementPosition = element.getBoundingClientRect().top;
+      const offsetPosition = elementPosition + window.pageYOffset - offset;
+      
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: 'smooth'
+      });
+    }
+    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+  };
+
   return (
     <div className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 lg:px-12 transition-all duration-700 ease-out ${isScrolled ? 'pt-4' : 'pt-10'}`}>
       <nav 
@@ -49,6 +65,7 @@ const Navbar: React.FC = () => {
              <a 
                key={item.label}
                href={item.href} 
+               onClick={(e) => handleNavClick(e, item.href)}
                className="px-6 py-2.5 rounded-full text-[11px] font-bold text-gray-500 hover:text-black uppercase tracking-[0.25em] transition-all hover:bg-gray-50/80 active:scale-95"
              >
                {item.label}
@@ -95,7 +112,7 @@ const Navbar: React.FC = () => {
                  <a 
                    key={item.label}
                    href={item.href} 
-                   onClick={toggleMobileMenu} 
+                   onClick={(e) => handleNavClick(e, item.href)} 
                    className="text-3xl font-bold text-gray-900 py-4 border-b border-gray-50 flex items-center justify-between group"
                  >
                    <div className="flex items-center gap-5">

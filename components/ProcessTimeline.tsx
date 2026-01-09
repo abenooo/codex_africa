@@ -41,7 +41,7 @@ const ProcessTimeline: React.FC = () => {
   const height = useTransform(heightSpring, [0, 1], ["0%", "100%"]);
 
   return (
-    <div className="relative bg-[#FAFAFA] py-16 sm:py-24">
+    <div id="process" className="relative bg-[#FAFAFA] py-16 sm:py-24">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-24">
           <div className="lg:col-span-5 relative">
