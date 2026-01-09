@@ -25,12 +25,29 @@ const DestinationCard: React.FC<DestinationCardProps> = ({ country, title, bgCol
             {title}
           </h2>
           <div className="flex flex-wrap gap-4">
-            <button className="px-8 py-4 bg-[#2D0A31] text-white rounded-full font-black text-sm hover:scale-105 active:scale-95 transition-all shadow-xl shadow-[#2D0A31]/20">
+             {/* CTA Buttons */}
+          <div className="flex flex-col sm:flex-row items-center xl:items-start justify-center xl:justify-start gap-4">
+            <a
+              href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              data-cal-link="abenezer-kifle-t8tqcf/platform-demo"
+              data-cal-namespace=""
+              data-cal-config='{"layout":"month_view"}'
+              className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-black px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95 whitespace-nowrap"
+            >
               Book Now
-            </button>
-            <button className="px-8 py-4 border-2 border-[#2D0A31] text-[#2D0A31] rounded-full font-black text-sm hover:bg-[#2D0A31] hover:text-white transition-all">
+              <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
+              </svg>
+            </a>
+            <a
+              href="#comparison"
+              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-gray-900 shadow-sm ring-2 ring-gray-200 transition-all hover:ring-gray-900 active:scale-95 whitespace-nowrap"
+            >
               Request a Demo
-            </button>
+            </a>
+          </div>
           </div>
         </div>
 
