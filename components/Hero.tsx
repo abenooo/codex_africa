@@ -1,259 +1,255 @@
+import React from 'react';
+import { motion } from 'framer-motion';
 
-import React, { useEffect } from 'react';
-import { 
-  LayoutDashboard, 
-  CreditCard, 
-  Receipt, 
-  Settings,
-  Plus,
-  Search,
-  ArrowUpRight,
-  ChevronRight,
-  Bell,
-  Users,
-  Briefcase,
-  TrendingUp
-} from 'lucide-react';
-
-const MockupInternal: React.FC = () => {
+export const Hero = () => {
   return (
-    <div className="relative w-full h-full flex items-center justify-center perspective-3000 transition-all duration-700 select-none">
-      
-      {/* Desktop Monitor Mockup (iMac-style) - Responsive scaling */}
-      <div 
-        className="relative transform-gpu z-10 scale-[0.25] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.65] xl:scale-[0.85]"
-      >
-        {/* Monitor Screen with integrated chin */}
-        <div className="relative w-[800px] lg:w-[900px]">
-          {/* Screen + Bezel */}
-          <div className="relative bg-gray-900 rounded-t-[2rem] shadow-[0_50px_120px_rgba(0,0,0,0.5)] border-t-[12px] border-l-[12px] border-r-[12px] border-gray-900">
-            {/* Screen Content */}
-            <div className="relative bg-white overflow-hidden rounded-t-[1rem]">
-              {/* Browser Chrome */}
-              <div className="flex items-center justify-between bg-gray-50 px-5 py-3 border-b border-gray-200">
-                <div className="flex items-center gap-2">
-                  <span className="h-3 w-3 rounded-full bg-red-400" />
-                  <span className="h-3 w-3 rounded-full bg-amber-400" />
-                  <span className="h-3 w-3 rounded-full bg-emerald-400" />
-                </div>
-                <div className="flex-1 mx-6">
-                  <div className="bg-white border border-gray-200 rounded-lg px-4 py-1.5 text-xs font-medium text-gray-500 text-center">
-                    app.codexafrica.com/dashboard
-                  </div>
-                </div>
-                <div className="w-16" />
-              </div>
-              
-              {/* Dashboard Screenshot */}
-              <div className="w-full bg-white overflow-hidden">
-                <img
-                  src="/web.jpeg"
-                  alt="Codex Africa Dashboard"
-                  className="w-full h-auto object-cover"
-                />
-              </div>
-            </div>
-          </div>
-          
-          {/* Chin (bottom bezel) - no gap */}
-          <div className="w-full h-8 bg-gradient-to-b from-gray-800 to-gray-900 border-b-[12px] border-l-[12px] border-r-[12px] border-gray-900 rounded-b-[2rem]" />
-        </div>
-
-        {/* Monitor Stand */}
-        <div className="flex flex-col items-center">
-          {/* Stand neck */}
-          <div className="w-4 h-12 bg-gradient-to-b from-gray-700 to-gray-800" />
-          {/* Stand base */}
-          <div className="w-48 h-3 rounded-full bg-gradient-to-b from-gray-700 to-gray-800 shadow-[0_10px_30px_rgba(0,0,0,0.4)]" />
-        </div>
-      </div>
-
-
-      {/* Mobile Mockup - Positioned to the far right with gap */}
-      <div 
-        className="absolute right-0 bottom-4 sm:bottom-8 lg:bottom-16 z-50 scale-[0.25] sm:scale-[0.35] md:scale-[0.5] lg:scale-[0.65] xl:scale-[0.85] translate-x-[20%] sm:translate-x-[25%] md:translate-x-[30%] lg:translate-x-[35%] xl:translate-x-[40%]"
-      >
-        <div className="w-[260px] lg:w-[300px] h-[560px] lg:h-[640px] bg-black rounded-[48px] lg:rounded-[56px] border-[12px] lg:border-[16px] border-[#18181b] shadow-[0_40px_100px_rgba(0,0,0,0.8)] overflow-hidden">
-          <img
-            src="/mobile.jpg"
-            alt="Codex Africa Mobile App"
-            className="w-full h-full object-cover"
-          />
-          {/* Original mockup content replaced with real screenshot */}
-          <div className="hidden w-full h-full bg-white flex flex-col">
-            <div className="h-10 w-full flex justify-center items-end pb-2 bg-white">
-              <div className="h-6 w-28 lg:w-32 bg-black rounded-full shadow-inner"></div>
-            </div>
-            <div className="px-6 pt-6 flex justify-between items-center">
-              <div className="w-10 h-10 bg-black rounded-2xl flex items-center justify-center shadow-xl">
-                  <div className="w-5 h-5 bg-[#e2ff31] rounded-md transform rotate-45"></div>
-              </div>
-              <div className="text-right">
-                  <div className="text-[9px] font-black text-gray-300 uppercase tracking-widest">Available</div>
-                  <div className="text-2xl font-black text-black leading-none">$8,241</div>
-              </div>
-            </div>
-            <div className="px-6 py-6">
-              <div className="w-full aspect-[1.58/1] bg-[#111] rounded-[24px] lg:rounded-[28px] p-5 lg:p-6 flex flex-col justify-between text-white shadow-xl relative overflow-hidden">
-                  <div className="flex justify-between items-start z-10">
-                    <span className="text-sm lg:text-base font-black italic tracking-tighter">ramp</span>
-                    <div className="w-10 h-6 bg-white/10 rounded-lg border border-white/20 flex items-center justify-center">
-                      <div className="w-4 h-4 rounded-full bg-white/20"></div>
-                      <div className="w-4 h-4 rounded-full bg-white/20 -ml-2"></div>
-                    </div>
-                  </div>
-                  <div className="z-10">
-                    <div className="text-[8px] font-bold text-gray-500 uppercase tracking-widest mb-1">Corporate</div>
-                    <div className="text-xs lg:text-base font-mono tracking-[0.2em]">•••• 9904</div>
-                  </div>
-              </div>
-            </div>
-            <div className="flex-1 bg-white px-6 pt-8 rounded-t-[40px] shadow-[0_-20px_40px_rgba(0,0,0,0.03)] overflow-hidden">
-              <div className="flex justify-between items-center mb-6">
-                  <h4 className="font-black text-base lg:text-lg tracking-tight text-black">Latest activity</h4>
-                  <ChevronRight size={18} className="text-gray-400" />
-              </div>
-              <div className="space-y-4 lg:space-y-6">
-                  {[
-                    { name: 'Zoom Video', price: '-$14.99', color: 'bg-blue-50 text-blue-600' },
-                    { name: 'Uber Business', price: '-$32.10', color: 'bg-gray-50 text-black' },
-                    { name: 'Apple Store', price: '-$1,299', color: 'bg-indigo-50 text-indigo-600' }
-                  ].map((item, i) => (
-                    <div key={i} className="flex justify-between items-center group">
-                      <div className="flex items-center gap-4">
-                          <div className={`w-10 h-10 lg:w-12 lg:h-12 ${item.color} rounded-xl flex items-center justify-center text-[10px] font-black`}>{item.name[0]}</div>
-                          <div>
-                            <div className="text-[11px] lg:text-xs font-black text-black leading-none mb-1">{item.name}</div>
-                            <div className="text-[9px] text-gray-400 font-bold uppercase tracking-tight">Today</div>
-                          </div>
-                      </div>
-                      <div className="text-[11px] lg:text-xs font-black text-black">{item.price}</div>
-                    </div>
-                  ))}
-              </div>
-            </div>
-            <div className="h-20 lg:h-24 bg-white border-t border-gray-50 flex justify-around items-center px-6 lg:px-8 pb-4">
-              {[LayoutDashboard, CreditCard, Plus, ArrowUpRight, Settings].map((Icon, i) => (
-                <div key={i} className={`p-2.5 rounded-xl transition-all duration-300 ${i === 2 ? 'bg-[#e2ff31] text-black shadow-lg shadow-[#e2ff31]/40 -translate-y-4 scale-110' : 'text-gray-200 hover:text-black'}`}>
-                  <Icon size={20} strokeWidth={2.5} />
-                </div>
+    <div className="relative min-h-screen flex items-center justify-center bg-gradient-to-b from-[#0A1929] to-[#1E3A5F] overflow-hidden px-6 py-20 lg:py-32">
+      <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-16 items-center">
+        
+        {/* Left Column: Messaging */}
+        <motion.div 
+          initial={{ opacity: 0, x: -50 }}
+          animate={{ opacity: 1, x: 0 }}
+          transition={{ duration: 0.8 }}
+          className="flex flex-col items-start z-40 relative mt-8 lg:mt-16"
+        >
+          {/* Trust Badge */}
+          <motion.div
+            initial={{ opacity: 0, y: -10 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="flex items-center gap-3 mb-6 bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full border border-white/20"
+          >
+            <div className="flex items-center gap-1">
+              {[...Array(5)].map((_, i) => (
+                <svg key={i} className="w-4 h-4 text-yellow-400 fill-current" viewBox="0 0 20 20">
+                  <path d="M10 15l-5.878 3.09 1.123-6.545L.489 6.91l6.572-.955L10 0l2.939 5.955 6.572.955-4.756 4.635 1.123 6.545z" />
+                </svg>
               ))}
             </div>
+            <span className="text-white/90 text-sm font-medium">2,000+ 5 star reviews</span>
+          </motion.div>
+
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-white"
+          >
+            Modern SACCO software for Africa
+          </motion.h1>
+
+          <motion.p 
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.2 }}
+            className="text-lg md:text-xl text-blue-200 mb-10 max-w-xl leading-relaxed"
+          >
+            Launch member onboarding, savings, loans, and mobile banking from one secure platform — in minutes, not months.
+          </motion.p>
+
+          {/* CTA Buttons */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.4 }}
+            className="flex flex-col sm:flex-row gap-4 mb-8"
+          >
+            <button className="bg-[#D4FF00] text-gray-900 px-8 py-4 rounded-full font-bold text-sm whitespace-nowrap hover:bg-[#E5FF33] transition-all duration-300 shadow-lg active:scale-95">
+              Book appointment
+            </button>
+            <button className="bg-white/10 backdrop-blur-sm text-white border-2 border-white/20 px-8 py-4 rounded-full font-bold text-sm whitespace-nowrap hover:bg-white/20 transition-all duration-300 shadow-lg active:scale-95">
+              View pricing
+            </button>
+          </motion.div>
+
+          {/* Features List */}
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            transition={{ delay: 0.6 }}
+            className="flex flex-col gap-3"
+          >
+            <div className="flex items-center gap-2 text-blue-100 font-medium text-sm">
+              <svg className="w-5 h-5 text-[#D4FF00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              No setup fees
+            </div>
+            <div className="flex items-center gap-2 text-blue-100 font-medium text-sm">
+              <svg className="w-5 h-5 text-[#D4FF00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Bank-grade security
+            </div>
+            <div className="flex items-center gap-2 text-blue-100 font-medium text-sm">
+              <svg className="w-5 h-5 text-[#D4FF00]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+              </svg>
+              Launch in minutes
+            </div>
+          </motion.div>
+        </motion.div>
+
+        {/* Right Column: Device Mockups */}
+        <motion.div 
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 1.2, ease: "easeOut" }}
+          className="relative h-[500px] lg:h-[700px] flex items-center justify-center lg:justify-end"
+        >
+          <div className="relative w-full h-full flex items-center justify-end">
+            
+            {/* Desktop Monitor Mockup - Reporting Interface */}
+            <div className="relative z-10 w-[95%] lg:w-[110%] transform translate-y-0 lg:translate-y-0">
+              <div className="bg-gray-300 p-[4px] rounded-[1.5rem] shadow-[0_60px_100px_rgba(0,0,0,0.6)]">
+                <div className="bg-[#0f0f0f] p-[10px] rounded-[1.3rem]">
+                  <div className="rounded-[0.8rem] overflow-hidden bg-white aspect-[16/10] relative">
+                    {/* Reporting Dashboard Content */}
+                    <div className="w-full h-full bg-white p-4 flex text-[10px]">
+                      {/* Sidebar */}
+                      <div className="w-[15%] bg-white border-r border-gray-200 pr-2 space-y-0.5">
+                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Dashboard</div>
+                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Reports</div>
+                        <div className="py-1.5 px-2 bg-gray-100 text-gray-900 font-semibold rounded text-[9px]">Reporting</div>
+                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Compliance</div>
+                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Analytics</div>
+                      </div>
+                      
+                      {/* Main Content */}
+                      <div className="flex-1 pl-4">
+                        <div className="flex justify-between items-start mb-3">
+                          <div>
+                            <h2 className="text-lg font-bold text-gray-900 mb-1">Reporting</h2>
+                            <div className="flex gap-4 text-[9px]">
+                              <button className="pb-1 border-b-2 border-gray-900 font-semibold">Spending</button>
+                              <button className="pb-1 text-gray-500">Compliance</button>
+                              <button className="pb-1 text-gray-500 flex items-center gap-0.5">
+                                Present
+                                <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                                </svg>
+                              </button>
+                            </div>
+                          </div>
+                          <button className="bg-[#D4FF00] text-gray-900 px-4 py-1.5 rounded-lg font-semibold text-[9px]">
+                            Create card
+                          </button>
+                        </div>
+
+                        {/* Stats Cards */}
+                        <div className="grid grid-cols-2 gap-2 mb-3">
+                          <div className="bg-white border border-gray-200 rounded-lg p-2">
+                            <div className="text-[7px] text-gray-500 mb-0.5">Total spending</div>
+                            <div className="text-sm font-bold">$165,927.41</div>
+                          </div>
+                          <div className="bg-white border border-gray-200 rounded-lg p-2">
+                            <div className="text-[7px] text-gray-500 mb-0.5">Monthly avg</div>
+                            <div className="text-sm font-bold">$2,947.72</div>
+                          </div>
+                        </div>
+
+                        {/* Chart Area */}
+                        <div className="bg-gradient-to-br from-blue-50 to-gray-50 rounded-lg p-3 h-32 relative">
+                          <svg className="w-full h-full" viewBox="0 0 400 120" preserveAspectRatio="none">
+                            {/* Grid lines */}
+                            <line x1="0" y1="30" x2="400" y2="30" stroke="#e5e7eb" strokeWidth="0.5"/>
+                            <line x1="0" y1="60" x2="400" y2="60" stroke="#e5e7eb" strokeWidth="0.5"/>
+                            <line x1="0" y1="90" x2="400" y2="90" stroke="#e5e7eb" strokeWidth="0.5"/>
+                            
+                            {/* Stacked area chart paths */}
+                            <path d="M 0 100 Q 50 95 100 85 T 200 70 T 300 55 T 400 40 L 400 120 L 0 120 Z" fill="#93C5FD" opacity="0.7"/>
+                            <path d="M 0 95 Q 50 90 100 80 T 200 65 T 300 50 T 400 35 L 400 120 L 0 120 Z" fill="#86EFAC" opacity="0.7"/>
+                            <path d="M 0 90 Q 50 85 100 75 T 200 60 T 300 45 T 400 30 L 400 120 L 0 120 Z" fill="#FCA5A5" opacity="0.7"/>
+                            <path d="M 0 85 Q 50 80 100 70 T 200 55 T 300 40 T 400 25 L 400 120 L 0 120 Z" fill="#FDE047" opacity="0.7"/>
+                          </svg>
+                          
+                          {/* Legend */}
+                          <div className="absolute top-2 right-2 flex flex-col gap-0.5 text-[7px]">
+                            <div className="flex items-center gap-1">
+                              <div className="w-2 h-2 rounded-full bg-blue-400"></div>
+                              <span className="text-gray-600">Travel</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <div className="w-2 h-2 rounded-full bg-green-400"></div>
+                              <span className="text-gray-600">SaaS</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <div className="w-2 h-2 rounded-full bg-red-400"></div>
+                              <span className="text-gray-600">Marketing</span>
+                            </div>
+                            <div className="flex items-center gap-1">
+                              <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
+                              <span className="text-gray-600">Operations</span>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              {/* Monitor Stand */}
+              <div className="absolute top-[99.5%] left-1/2 -translate-x-1/2 flex flex-col items-center">
+                <div className="w-[100px] h-[60px] bg-gradient-to-b from-gray-400 to-gray-500" style={{ clipPath: 'polygon(30% 0%, 70% 0%, 100% 100%, 0% 100%)' }} />
+                <div className="w-[240px] h-3 bg-gray-300 rounded-xl shadow-[0_8px_20px_rgba(0,0,0,0.3)] mt-[-1px]" />
+              </div>
+            </div>
+
+            {/* Mobile Phone Mockup - Exact position as in design (bottom right, touching monitor edge) */}
+            <motion.div 
+              initial={{ x: 40, y: 40, opacity: 0 }}
+              animate={{ x: 0, y: 0, opacity: 1 }}
+              transition={{ duration: 1, delay: 0.8, ease: "backOut" }}
+              className="absolute right-[2%] lg:right-[5%] bottom-[-8%] lg:bottom-[-6%] w-28 md:w-36 lg:w-44 z-40"
+            >
+              <div className="bg-black p-1.5 rounded-[2.2rem] border-[4px] border-[#2a2a2a] shadow-[0_30px_60px_rgba(0,0,0,0.8)] relative overflow-hidden">
+                 <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 md:w-16 h-3.5 bg-black rounded-full z-50 border border-gray-800" />
+                 <div className="rounded-[1.8rem] w-full aspect-[9/19.5] overflow-hidden bg-[#0A1929] relative">
+                    {/* Mobile App Content */}
+                    <div className="w-full h-full bg-gradient-to-b from-[#0A1929] to-[#1E3A5F] p-3 text-white text-[7px]">
+                      <div className="flex justify-between items-center mb-6">
+                        <div className="font-bold text-[8px]">ramp</div>
+                        <div className="flex gap-1.5">
+                          <div className="w-5 h-5 bg-white/10 rounded-full"></div>
+                        </div>
+                      </div>
+                      
+                      <div className="space-y-2 mb-4">
+                        <div className="flex justify-between py-1.5 border-b border-white/10">
+                          <span className="text-white/60 text-[7px]">Travel expenses</span>
+                          <span className="font-semibold text-[7px]">$2,749.00</span>
+                        </div>
+                        <div className="flex justify-between py-1.5 border-b border-white/10">
+                          <span className="text-white/60 text-[7px]">SaaS payments</span>
+                          <span className="font-semibold text-[7px]">$1,342.11</span>
+                        </div>
+                        <div className="flex justify-between py-1.5 border-b border-white/10">
+                          <span className="text-white/60 text-[7px]">Marketing</span>
+                          <span className="font-semibold text-[7px]">$842.00</span>
+                        </div>
+                        <div className="flex justify-between py-1.5 border-b border-white/10">
+                          <span className="text-white/60 text-[7px]">Operations</span>
+                          <span className="font-semibold text-[7px]">$1,234.56</span>
+                        </div>
+                      </div>
+
+                      <div className="space-y-2">
+                        <div className="bg-white/5 rounded-xl p-2.5">
+                          <div className="text-[6px] text-white/60 mb-1">Total Spending</div>
+                          <div className="font-bold text-[9px]">$6,167.67</div>
+                        </div>
+                      </div>
+                    </div>
+                 </div>
+                 <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/5 to-transparent opacity-40 rounded-[2.2rem]" />
+              </div>
+            </motion.div>
+
           </div>
-        </div>
+        </motion.div>
+
       </div>
     </div>
   );
 };
 
- const Hero: React.FC = () => {
-  useEffect(() => {
-    // Wait for Cal to be available and initialize
-    const checkAndInit = () => {
-      // @ts-ignore
-      if (window.Cal) {
-        // @ts-ignore
-        window.Cal('init', { origin: 'https://app.cal.com' });
-        console.log('Cal.com initialized');
-        return true;
-      }
-      return false;
-    };
-
-    // Try immediately
-    if (!checkAndInit()) {
-      // Poll until available
-      const interval = setInterval(() => {
-        if (checkAndInit()) {
-          clearInterval(interval);
-        }
-      }, 100);
-
-      return () => clearInterval(interval);
-    }
-  }, []);
-
-
-  return (
-    <>
-    <section className="relative min-h-screen flex flex-col justify-center px-4 sm:px-6 md:px-12 lg:px-24 pt-24 pb-12 sm:pt-20 sm:pb-16 overflow-hidden">
-      <div className="grid grid-cols-1 xl:grid-cols-[1fr_2fr] gap-12 sm:gap-8 xl:gap-8 items-center max-w-7xl mx-auto w-full">
-        
-        {/* Column 1: Text & CTA (1/3 width) */}
-        <div className="z-20 order-1 xl:order-1 text-center xl:text-left">
-          {/* Eyebrow badge */}
-          <div className="flex items-center justify-center xl:justify-start gap-3 mb-6 sm:mb-8">
-            <span className="text-red-600 font-bold tracking-widest text-xs uppercase">// Codex Africa //</span>
-          </div>
-
-          {/* Headline */}
-          <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black text-gray-900 tracking-tight leading-[1.15] mb-4">
-            Modern SACCO software <br className="hidden sm:block" /> for Africa
-          </h1>
-
-          {/* Sub-headline */}
-          <p className="text-sm sm:text-base md:text-lg text-gray-600 leading-relaxed max-w-sm sm:max-w-md mx-auto xl:mx-0 mb-8 sm:mb-10">
-            Launch member onboarding, savings, loans, and mobile banking from one secure platform — in minutes, not months.
-          </p>
-
-          {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row items-center xl:items-start justify-center xl:justify-start gap-4">
-            <a
-              href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo"
-              target="_blank"
-              rel="noopener noreferrer"
-              data-cal-link="abenezer-kifle-t8tqcf/platform-demo"
-              data-cal-namespace=""
-              data-cal-config='{"layout":"month_view"}'
-              className="group inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-black px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-white shadow-[0_20px_60px_rgba(0,0,0,0.3)] transition-all hover:bg-red-600 hover:shadow-[0_20px_60px_rgba(220,38,38,0.4)] active:scale-95 whitespace-nowrap"
-            >
-              Book appointment
-              <svg className="h-5 w-5 transition-transform group-hover:translate-x-1" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={3}>
-                <path strokeLinecap="round" strokeLinejoin="round" d="M13 7l5 5m0 0l-5 5m5-5H6" />
-              </svg>
-            </a>
-            <a
-              href="#comparison"
-              className="inline-flex w-full sm:w-auto items-center justify-center gap-2 rounded-full bg-white px-5 sm:px-7 py-3 sm:py-4 text-xs sm:text-sm font-black uppercase tracking-widest text-gray-900 shadow-sm ring-2 ring-gray-200 transition-all hover:ring-gray-900 active:scale-95 whitespace-nowrap"
-            >
-              View pricing
-            </a>
-          </div>
-
-          {/* Trust indicators */}
-          <div className="mt-8 sm:mt-10 flex flex-wrap items-center justify-center xl:justify-start gap-4 sm:gap-6 text-xs sm:text-sm font-bold text-gray-500">
-            <div className="flex items-center gap-2 whitespace-nowrap">
-              <svg className="h-5 w-5 flex-shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span>No setup fees</span>
-            </div>
-            <div className="flex items-center gap-2 whitespace-nowrap">
-              <svg className="h-5 w-5 flex-shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span>Bank-grade security</span>
-            </div>
-            <div className="flex items-center gap-2 whitespace-nowrap">
-              <svg className="h-5 w-5 flex-shrink-0 text-emerald-600" fill="currentColor" viewBox="0 0 20 20">
-                <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
-              </svg>
-              <span>Launch in minutes</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Column: Integrated High Fidelity 3D Mockup */}
-        <div className="relative h-[300px] sm:h-[400px] md:h-[500px] lg:h-[650px] xl:h-[800px] w-full flex items-center justify-center order-2 xl:order-2 overflow-hidden xl:overflow-visible">
-           <MockupInternal />
-        </div>
-      </div>
-      
-      {/* Dynamic Background Accents */}
-      <div className="absolute -top-24 -right-24 w-[600px] h-[600px] bg-blue-500/10 blur-[180px] -z-10 rounded-full"></div>
-      <div className="absolute top-1/2 left-0 w-96 h-96 bg-purple-500/5 blur-[150px] -z-10 rounded-full"></div>
-    </section>
-    </>
-  );
-};
 export default Hero;
