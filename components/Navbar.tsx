@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { Menu, X, ArrowRight, Zap, ArrowUpRight, History, LayoutGrid, Users, Smartphone, Play, Video } from 'lucide-react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { Menu, X, ArrowRight, History, LayoutGrid, Users, Smartphone, Video } from 'lucide-react';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -152,59 +151,53 @@ const Navbar: React.FC = () => {
       </div>
 
       {/* Mobile Menu Overlay */}
-      <AnimatePresence>
-        {isMobileMenuOpen && (
-          <motion.div 
-            initial={{ opacity: 0, y: -20, scale: 0.95 }}
-            animate={{ opacity: 1, y: 0, scale: 1 }}
-            exit={{ opacity: 0, y: -20, scale: 0.95 }}
-            transition={{ duration: 0.4, ease: [0.23, 1, 0.32, 1] }}
-            className="fixed inset-0 top-20 left-4 right-4 mt-4 mx-auto max-w-md bg-white/98 backdrop-blur-3xl rounded-[3rem] p-8 shadow-2xl border border-white/40 lg:hidden flex flex-col gap-5 z-[99] h-[calc(100vh-7rem)] overflow-y-auto"
-          >
-            {[
-              { label: 'Process', href: '#process', icon: History },
-              { label: 'Features', href: '#features', icon: LayoutGrid },
-              { label: 'Team', href: '#team', icon: Users },
-              { 
-                label: 'Our Mobile App',
-                href: '#mobile-app', 
-                icon: Smartphone 
-              },
-              { 
-                label: 'Contact',
-                href: '#contact',
-                icon: ArrowRight 
-              }
-            ].map((item) => (
-              <a 
-                key={item.label}
-                href={item.href} 
-                onClick={(e) => handleNavClick(e, item.href)} 
-                className="text-2xl font-bold text-gray-900 py-4 border-b border-gray-100 flex items-center justify-between group"
-              >
-                <div className="flex items-center gap-5">
-                  <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:text-red-600 transition-colors">
-                    <item.icon size={24} />
-                  </div>
-                  <span>{item.label}</span>
+      {isMobileMenuOpen && (
+        <div
+          className="fixed inset-0 top-20 left-4 right-4 mt-4 mx-auto max-w-md bg-white/98 backdrop-blur-3xl rounded-[3rem] p-8 shadow-2xl border border-white/40 lg:hidden flex flex-col gap-5 z-[99] h-[calc(100vh-7rem)] overflow-y-auto"
+        >
+          {[
+            { label: 'Process', href: '#process', icon: History },
+            { label: 'Features', href: '#features', icon: LayoutGrid },
+            { label: 'Team', href: '#team', icon: Users },
+            {
+              label: 'Our Mobile App',
+              href: '#mobile-app',
+              icon: Smartphone,
+            },
+            {
+              label: 'Contact',
+              href: '#contact',
+              icon: ArrowRight,
+            },
+          ].map((item) => (
+            <a
+              key={item.label}
+              href={item.href}
+              onClick={(e) => handleNavClick(e, item.href)}
+              className="text-2xl font-bold text-gray-900 py-4 border-b border-gray-100 flex items-center justify-between group"
+            >
+              <div className="flex items-center gap-5">
+                <div className="w-12 h-12 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-500 group-hover:text-red-600 transition-colors">
+                  <item.icon size={24} />
                 </div>
-                <ArrowRight size={20} className="text-gray-500 group-hover:text-black transition-colors" />
-              </a>
-            ))}
-            <div className="pt-4">
-              <a
-                href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="bg-black text-white w-full py-4 rounded-[2rem] font-bold text-lg flex justify-center items-center gap-3 active:scale-95 transition-transform hover:bg-red-600 shadow-2xl shadow-red-500/10"
-              >
-                Book A Session
-                <Video size={18} className="text-white" />
-              </a>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
+                <span>{item.label}</span>
+              </div>
+              <ArrowRight size={20} className="text-gray-500 group-hover:text-black transition-colors" />
+            </a>
+          ))}
+          <div className="pt-4">
+            <a
+              href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-black text-white w-full py-4 rounded-[2rem] font-bold text-lg flex justify-center items-center gap-3 active:scale-95 transition-transform hover:bg-red-600 shadow-2xl shadow-red-500/10"
+            >
+              Book A Session
+              <Video size={18} className="text-white" />
+            </a>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
