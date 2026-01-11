@@ -4,39 +4,46 @@ import { Menu, X, ArrowRight, History, LayoutGrid, Users, Smartphone, Video } fr
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [activeSection, setActiveSection] = useState('');
-  const observer = useRef<IntersectionObserver | null>(null);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useEffect(() => {
-    const sections = document.querySelectorAll('section[id], div[id]');
-    
-    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setActiveSection('#' + entry.target.id);
-        }
+    const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id], div[id]'))
+      .filter((el) => el.id);
+
+    const getActiveSection = () => {
+      // Account for fixed navbar height + a bit of breathing room.
+      const offset = 120;
+      const scrollPos = window.scrollY + offset;
+
+      // Find the last section whose top is above the current scroll position.
+      let current: string | null = null;
+      for (const el of sections) {
+        if (el.offsetTop <= scrollPos) current = `#${el.id}`;
+      }
+
+      // If we haven't reached the first section yet, clear highlight.
+      setActiveSection(current ?? '');
+    };
+
+    // Run once on mount and then on scroll/resize.
+    getActiveSection();
+
+    let ticking = false;
+    const onScroll = () => {
+      if (ticking) return;
+      ticking = true;
+      window.requestAnimationFrame(() => {
+        getActiveSection();
+        ticking = false;
       });
     };
 
-    observer.current = new IntersectionObserver(handleIntersection, {
-      root: null,
-      rootMargin: '0px',
-      threshold: 0.5
-    });
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
 
-    sections.forEach(section => {
-      if (section.id) {
-        observer.current?.observe(section);
-      }
-    });
-
-    // Cleanup
     return () => {
-      if (observer.current) {
-        sections.forEach(section => {
-          observer.current?.unobserve(section);
-        });
-      }
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
     };
   }, []);
 
