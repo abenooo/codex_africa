@@ -17,7 +17,8 @@ import {
   Bell,
   X,
   ShieldCheck,
-  Smartphone
+  Smartphone,
+  Apple
 } from 'lucide-react';
 
 const AppDownload: React.FC = () => {
@@ -46,15 +47,15 @@ const AppDownload: React.FC = () => {
   const user = {
     name: 'Abenezer Kifle',
     accountNumber: '1213123123123123',
-    balance: 25000.50,
+    balance: 25000,
     lastLogin: '2 mins ago'
   };
 
   const quickActionButtons = [
-    { id: 'deposit', label: 'Deposit', icon: 'arrow-down-circle', color: 'green' },
-    { id: 'withdraw', label: 'Withdraw', icon: 'arrow-up-circle', color: 'red' },
-    { id: 'transfer', label: 'Transfer', icon: 'repeat', color: 'blue' },
-    { id: 'repay', label: 'Repay Loan', icon: 'credit-card', color: 'purple' }
+    { id: 'deposit', label: 'Deposit', icon: '↓', color: 'green', bgColor: 'bg-green-100', textColor: 'text-green-600' },
+    { id: 'withdraw', label: 'Withdraw', icon: '↑', color: 'red', bgColor: 'bg-red-100', textColor: 'text-red-600' },
+    { id: 'transfer', label: 'Transfer', icon: '⇄', color: 'blue', bgColor: 'bg-blue-100', textColor: 'text-blue-600' },
+    { id: 'repay', label: 'Repay Loan', icon: '💳', color: 'purple', bgColor: 'bg-purple-100', textColor: 'text-purple-600' }
   ];
 
   const services = [
@@ -62,9 +63,9 @@ const AppDownload: React.FC = () => {
     { id: 'calculator', label: 'Loan Calculator', icon: <Percent className="w-6 h-6" /> },
     { id: 'shares', label: 'Buy Shares', icon: <PieChart className="w-6 h-6" /> },
     { id: 'dividends', label: 'Dividends', icon: <BarChart2 className="w-6 h-6" /> },
-    { id: 'apply-loan', label: 'Apply Loan', icon: <DollarSign className="w-6 h-6" /> },
+    { id: 'apply-loan', label: 'Apply Loan', icon: <FileText className="w-6 h-6" /> },
     { id: 'statements', label: 'Statements', icon: <FileText className="w-6 h-6" /> },
-    { id: 'payment-method', label: 'Payment', icon: <CreditCard className="w-6 h-6" /> },
+    { id: 'payment', label: 'Payment', icon: <CreditCard className="w-6 h-6" /> },
     { id: 'savings', label: 'Savings', icon: <DollarSign className="w-6 h-6" /> },
   ];
 
@@ -154,15 +155,12 @@ const AppDownload: React.FC = () => {
               onClick={() => handleTransactionAction(action.id)}
               className="flex flex-col items-center justify-center p-2 bg-white rounded-xl shadow-sm"
             >
-              <div className={`w-10 h-10 rounded-full bg-${action.color}-50 flex items-center justify-center mb-1`}>
-                <span className={`text-${action.color}-500`}>
-                  {action.icon === 'arrow-down-circle' && '↓'}
-                  {action.icon === 'arrow-up-circle' && '↑'}
-                  {action.icon === 'repeat' && '⇄'}
-                  {action.icon === 'credit-card' && '💳'}
+              <div className={`w-12 h-12 rounded-full ${action.bgColor} flex items-center justify-center mb-1 border-2 border-dashed ${action.textColor} border-opacity-50`}>
+                <span className="text-xl">
+                  {action.icon}
                 </span>
               </div>
-              <span className="text-xs text-center">{action.label}</span>
+              <span className="text-xs text-center text-gray-700 font-medium">{action.label}</span>
             </button>
           ))}
         </div>
@@ -277,24 +275,32 @@ const AppDownload: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <a 
                   href="#" 
-                  className="flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl transition-colors whitespace-nowrap"
+                  className="flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl transition-colors whitespace-nowrap w-full max-w-[240px]"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M3.6 1.5H20.4C21.27 1.5 22 2.23 22 3.1V20.9C22 21.77 21.27 22.5 20.4 22.5H3.6C2.73 22.5 2 21.77 2 20.9V3.1C2 2.23 2.73 1.5 3.6 1.5Z" fill="#EA4335"/>
-                    <path d="M12 12.5H20.4C20.4 12.5 16.5 7.5 12 7.5C7.5 7.5 3.6 12.5 3.6 12.5L5.5 14.5L8.5 11.5L12 15.5L15.5 11.5L18.5 14.5L20.4 12.5H12Z" fill="white"/>
-                  </svg>
-                  <span>Download on Google Play</span>
+                  <div className="w-8 h-8 mr-3 flex items-center justify-center">
+                    <svg viewBox="0 0 24 24" className="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
+                      <path d="M3.5 2.1C3.2 2.4 3 2.8 3 3.4V20.6C3 21.2 3.2 21.6 3.5 21.9L3.6 22L13.1 12.5V12.3L3.6 2.8L3.5 2.1Z" fill="#3BCCFF"/>
+                      <path d="M16.3 15.7L13.1 12.5V12.3L16.3 9.1L16.4 9.2L20.2 11.4C21.3 12 21.3 12.9 20.2 13.5L16.4 15.6L16.3 15.7Z" fill="#FFD400"/>
+                      <path d="M16.4 15.7L13.1 12.4L3.6 21.9C3.9 22.2 4.4 22.2 5 21.9L16.4 15.7Z" fill="#FF3333"/>
+                      <path d="M16.4 9.1L5 2.9C4.4 2.6 3.9 2.6 3.6 2.9L13.1 12.4L16.4 9.1Z" fill="#48FF48"/>
+                    </svg>
+                  </div>
+                  <div className="flex flex-col items-start leading-tight">
+                    <span className="text-[10px] font-semibold uppercase tracking-wide opacity-90">GET IT ON</span>
+                    <span className="text-xl font-bold -mt-0.5 tracking-tight">Google Play</span>
+                  </div>
                 </a>
                 <a 
                   href="#" 
-                  className="flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl transition-colors whitespace-nowrap"
+                  className="flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl transition-colors whitespace-nowrap w-full max-w-[240px]"
                 >
-                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                    <path d="M17.05 20.28C16.07 21.23 15 20.55 15 19.13V17.08C15 15.5 16.35 14.15 17.93 14.15C17.97 14.15 18.03 14.15 18.07 14.15C18.68 14.19 19.23 14.37 19.71 14.7C19.45 15.2 19.24 15.73 19.07 16.27C18.7 17.8 18.7 20.21 17.05 20.28Z" fill="#000000"/>
-                    <path d="M18.93 12.15C18.38 12.21 17.8 12.09 17.27 11.8C16.03 11.16 15.47 9.93 15.47 9.93C15.47 9.93 14.77 8.55 15.81 7.15C16.38 6.4 17.12 6.26 17.65 6.25C17.71 6.25 17.76 6.25 17.82 6.25C17.74 6.32 17.67 6.4 17.6 6.49C16.95 7.27 17.14 8.47 17.22 8.85C17.45 9.85 18.11 10.71 19.05 11.09C19.67 11.34 20.3 11.38 20.81 11.31C20.93 11.29 21.05 11.27 21.16 11.25C21 10.36 20.46 9.56 19.77 8.99C19.15 8.47 18.75 7.69 18.75 6.81C18.75 6.24 18.9 5.7 19.16 5.23C17.89 5.69 17 6.75 17 8.02C17 9.3 17.97 10.4 19.26 10.81C19.58 10.91 19.77 11.23 19.7 11.56C19.63 11.89 19.32 12.1 19 12.07C18.98 12.07 18.95 12.07 18.93 12.07V12.15Z" fill="#000000"/>
-                    <path d="M16.5 15.75C15.5 19.75 12 21.5 12 21.5C12 21.5 6 19.5 4 12.5C2.5 7.5 4.5 3.5 6.5 2C6.5 2 8 3.5 10.5 3.5C13 3.5 13.68 2 16.5 2C17.57 2 18.46 2.07 19.18 2.2C18.5 2.54 17.86 3.2 17.5 4.1C16.36 2.93 14.7 4.18 15.03 5.55C15.22 6.33 16.08 6.82 16.92 7.31C19.17 8.62 20.5 10.26 20.5 12.25C20.5 13.95 19.5 15.75 16.5 15.75Z" fill="#000000"/>
-                  </svg>
-                  <span>Download on App Store</span>
+                  <div className="w-8 h-8 flex items-center justify-center">
+                    <Apple className="w-8 h-8 text-white" />
+                  </div>
+                  <div className="flex flex-col items-start leading-tight">
+                    <span className="text-[10px] font-semibold uppercase tracking-wide opacity-90">Download on the</span>
+                    <span className="text-xl font-bold -mt-0.5 tracking-tight">App Store</span>
+                  </div>
                 </a>
               </div>
             </div>
