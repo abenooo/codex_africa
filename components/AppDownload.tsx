@@ -237,7 +237,7 @@ const AppDownload: React.FC = () => {
               {/* Left Column - Text Content */}
               <div className="lg:col-span-5 space-y-6 py-8">
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
-                Mobile App
+              Designed to work seamlessly anywhere.
               </h2>
               
               <div className="space-y-4">
@@ -275,14 +275,11 @@ const AppDownload: React.FC = () => {
               <div className="flex flex-col sm:flex-row gap-3 pt-2">
                 <a 
                   href="#" 
-                  className="flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl transition-colors whitespace-nowrap w-full max-w-[240px]"
+                  className="flex items-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors shadow-lg w-full max-w-[240px]"
                 >
-                  <div className="w-8 h-8 mr-3 flex items-center justify-center">
-                    <svg viewBox="0 0 24 24" className="w-7 h-7" xmlns="http://www.w3.org/2000/svg">
-                      <path d="M3.5 2.1C3.2 2.4 3 2.8 3 3.4V20.6C3 21.2 3.2 21.6 3.5 21.9L3.6 22L13.1 12.5V12.3L3.6 2.8L3.5 2.1Z" fill="#3BCCFF"/>
-                      <path d="M16.3 15.7L13.1 12.5V12.3L16.3 9.1L16.4 9.2L20.2 11.4C21.3 12 21.3 12.9 20.2 13.5L16.4 15.6L16.3 15.7Z" fill="#FFD400"/>
-                      <path d="M16.4 15.7L13.1 12.4L3.6 21.9C3.9 22.2 4.4 22.2 5 21.9L16.4 15.7Z" fill="#FF3333"/>
-                      <path d="M16.4 9.1L5 2.9C4.4 2.6 3.9 2.6 3.6 2.9L13.1 12.4L16.4 9.1Z" fill="#48FF48"/>
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-gray-900" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M3.61 1.814L13.792 12 3.61 22.186a1.757 1.757 0 0 1-.61-1.34V3.154c0-.509.217-.99.61-1.34zM6.65 2.573l10.98 9.854a.5.5 0 0 1 0 .748L6.65 21.428a1.25 1.25 0 0 1-.85.322H1.75a.75.75 0 0 1-.75-.75V3a.75.75 0 0 1 .75-.75h4.05c.317 0 .622.115.85.322z"/>
                     </svg>
                   </div>
                   <div className="flex flex-col items-start leading-tight">
@@ -292,10 +289,12 @@ const AppDownload: React.FC = () => {
                 </a>
                 <a 
                   href="#" 
-                  className="flex items-center justify-center gap-3 bg-gray-900 hover:bg-gray-800 text-white px-8 py-4 rounded-xl transition-colors whitespace-nowrap w-full max-w-[240px]"
+                  className="flex items-center gap-3 bg-gray-900 text-white px-6 py-3 rounded-xl hover:bg-gray-800 transition-colors shadow-lg w-full max-w-[240px]"
                 >
-                  <div className="w-8 h-8 flex items-center justify-center">
-                    <Apple className="w-8 h-8 text-white" />
+                  <div className="w-8 h-8 bg-white rounded-lg flex items-center justify-center">
+                    <svg className="w-5 h-5 text-gray-900" viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.81-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/>
+                    </svg>
                   </div>
                   <div className="flex flex-col items-start leading-tight">
                     <span className="text-[10px] font-semibold uppercase tracking-wide opacity-90">Download on the</span>

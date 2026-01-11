@@ -5,8 +5,10 @@ import Features from './components/Features';
 import ProcessTimeline from './components/ProcessTimeline';
 import TeamSection from './components/TeamSection';
 import AppDownload from './components/AppDownload';
-import ComparisonSection from './components/ComparisonSection';
-import ValueDelaySection from './components/ValueDelaySection';
+import ContactSection from './components/ContactSection';
+// import ComparisonSection from './components/ComparisonSection';
+// import ValueDelaySection from './components/ValueDelaySection';
+
 const App: React.FC = () => {
   return (
     <div className="min-h-screen bg-[#f8f9fa] pb-24">
@@ -42,16 +44,19 @@ const App: React.FC = () => {
       <div id="mobile-app" className="pt-24">
         <AppDownload />
       </div>
+      {/* <div id="contact" className="pt-8"> */}
+        <ContactSection />
+      {/* </div> */}
         {/* </div>
       </main> */}
       {/* Comparison Section */}
       {/* <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto"> */}
-        <div className="w-container mx-auto space-y-12">
+        {/* <div className="w-container mx-auto space-y-12">
           <ComparisonSection />
-        </div>
+        </div> */}
       {/* Value Delay Section */}
     
-          <ValueDelaySection />
+          {/* <ValueDelaySection /> */}
       
       {/* </main> */}
     </div>

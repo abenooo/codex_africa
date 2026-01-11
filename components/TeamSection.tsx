@@ -8,7 +8,7 @@ const originalMembers: TeamMember[] = [
   {
     id: '1',
     name: 'Matyas Abera',
-    role: 'Co-Founder • Business Analyst',
+    role: 'Co-Founder • Senior Business Analyst',
     image: '/maty.png'
   },
   {

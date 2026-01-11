@@ -52,6 +52,10 @@ const Navbar: React.FC = () => {
               { 
                 label: 'Our Mobile App',
                 href: '#mobile-app'
+              },
+              { 
+                label: 'Contact',
+                href: '#contact'
               }
             ].map((item) => (
               <div key={item.label} className="relative group">
@@ -111,6 +115,10 @@ const Navbar: React.FC = () => {
                 label: 'Our Mobile App',
                 href: '#mobile-app', 
                 icon: Smartphone 
+              },
+              { 
+                label: 'Contact',
+                href: '#contact', 
               }
             ].map((item) => (
               <a 
