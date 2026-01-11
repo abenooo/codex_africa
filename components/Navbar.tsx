@@ -71,19 +71,19 @@ const Navbar: React.FC = () => {
               setIsMobileMenuOpen(false);
             }}
           >
-            <div className="h-16 sm:h-12 w-auto">
+            <div className="h-12 sm:h-12 md:h-14 lg:h-16 w-auto">
               <picture>
                 <source
                   type="image/webp"
                   srcSet="/image-168w.webp 168w, /image-336w.webp 336w"
-                  sizes="(min-width: 640px) 168px, 168px"
+                  sizes="(min-width: 1024px) 224px, (min-width: 768px) 192px, 168px"
                 />
                 <img
                   src="/image-168w.png"
                   srcSet="/image-168w.png 168w, /image-336w.png 336w"
-                  sizes="(min-width: 640px) 168px, 168px"
-                  width={168}
-                  height={112}
+                  sizes="(min-width: 1024px) 224px, (min-width: 768px) 192px, 168px"
+                  width={224}
+                  height={149}
                   alt="Codex Africa"
                   className="h-full w-auto dark:hidden"
                   decoding="async"
