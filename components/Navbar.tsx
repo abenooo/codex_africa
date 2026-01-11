@@ -160,7 +160,8 @@ const Navbar: React.FC = () => {
               },
               { 
                 label: 'Contact',
-                href: '#contact', 
+                href: '#contact',
+                icon: ArrowRight 
               }
             ].map((item) => (
               <a 

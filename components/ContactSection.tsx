@@ -173,7 +173,13 @@ const ContactSection: React.FC = () => {
               >
                 <div className="space-y-4">
                   <h3 className="text-2xl font-bold text-gray-900">{method.title}</h3>
-                  <p className="text-gray-600">{method.description}</p>
+                  <div className="text-gray-600">
+                    {typeof method.description === 'string' ? (
+                      <p>{method.description}</p>
+                    ) : (
+                      method.description
+                    )}
+                  </div>
                   <a
                     href={method.href}
                     target={method.target || "_self"}
