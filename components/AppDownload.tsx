@@ -222,7 +222,7 @@ const AppDownload: React.FC = () => {
           <div className="w-full">
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
               {/* Header Section */}
-              <div className="text-center mb-16 sm:mb-20 space-y-4">
+              <div className="text-center mb-6 sm:mb-20 space-y-4">
               <div className="flex items-center justify-center gap-2">
                 <span className="w-10 h-[2px] bg-red-500"></span>
                 <span className="text-[10px] font-black text-red-600 tracking-[0.4em] uppercase">Our Mobile App</span>

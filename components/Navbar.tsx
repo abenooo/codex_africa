@@ -1,10 +1,45 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Menu, X, ArrowRight, Zap, ArrowUpRight, History, LayoutGrid, Users, Smartphone, Play, Video } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState('');
+  const observer = useRef<IntersectionObserver | null>(null);
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
+
+  useEffect(() => {
+    const sections = document.querySelectorAll('section[id], div[id]');
+    
+    const handleIntersection = (entries: IntersectionObserverEntry[]) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          setActiveSection('#' + entry.target.id);
+        }
+      });
+    };
+
+    observer.current = new IntersectionObserver(handleIntersection, {
+      root: null,
+      rootMargin: '0px',
+      threshold: 0.5
+    });
+
+    sections.forEach(section => {
+      if (section.id) {
+        observer.current?.observe(section);
+      }
+    });
+
+    // Cleanup
+    return () => {
+      if (observer.current) {
+        sections.forEach(section => {
+          observer.current?.unobserve(section);
+        });
+      }
+    };
+  }, []);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
     e.preventDefault();
@@ -18,14 +53,17 @@ const Navbar: React.FC = () => {
         top: offsetPosition,
         behavior: 'smooth'
       });
+      
+      // Update active section immediately on click
+      setActiveSection(href);
     }
-    setIsMobileMenuOpen(false); // Close mobile menu after navigation
+    setIsMobileMenuOpen(false);
   };
 
   return (
     <div className="fixed top-0 left-0 right-0 z-[100] overflow-x-hidden">
       <div className="w-full max-w-[100vw] px-4 sm:px-6 lg:px-12 pt-2 mx-auto">
-        <nav className="w-full max-w-6xl mx-auto min-w-0 h-14 sm:h-16 flex items-center justify-between px-6 sm:px-8 rounded-full border bg-white/95 backdrop-blur-2xl border-white/50 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1)]">
+        <nav className="w-full max-w-6xl mx-auto min-w-0 h-14 sm:h-16 flex items-center justify-between px-6 sm:px-8 rounded-full border bg-white border-gray-100">
           {/* Logo Section */}
           <div 
             className="flex-shrink-0 flex items-center gap-4 cursor-pointer group" 
@@ -62,7 +100,11 @@ const Navbar: React.FC = () => {
                 <a 
                   href={item.href}
                   onClick={(e) => handleNavClick(e, item.href)}
-                  className="px-4 py-2 rounded-full text-xs font-bold text-gray-500 hover:text-black uppercase tracking-[0.2em] transition-all hover:bg-gray-50/80 active:scale-95 whitespace-nowrap"
+                  className={`px-4 py-2 rounded-full text-xs font-bold uppercase tracking-[0.2em] transition-all hover:bg-gray-50/80 active:scale-95 whitespace-nowrap ${
+                    activeSection === item.href 
+                      ? 'text-black bg-gray-100' 
+                      : 'text-gray-500 hover:text-black'
+                  }`}
                 >
                   {item.label}
                 </a>

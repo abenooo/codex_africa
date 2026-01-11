@@ -5,11 +5,14 @@ import { ArrowRight, MapPin } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
   const officeLocation = {
-    address: "Ras Mekonnen Ave, Leghar, 15th Floor",
-    city: "Addis Ababa, Ethiopia",
+    address: "Tsedey Bank Head Office, Ras Mekonen Ave",
+    city: "Leghar, Addis Ababa, Ethiopia",
     hours: "Monday to Saturday, 8:00 AM - 5:00 PM",
-    phone: "+251 911 123456",
-    mapUrl: "https://www.google.com/maps/place/Ras+Mekonnen+Ave,+Addis+Ababa,+Ethiopia/@9.031084,38.762972,17z/data=!3m1!4b1!4m6!3m5!1s0x162b8f9e3e1e1e1f:0x1b9b9b9b9b9b9b9b9!8m2!3d9.031084!4d38.762972!16s%2Fg%2F11b8f9f9f9?entry=ttu"
+    mapUrl: "https://www.google.com/maps/place/Tsedey+Bank+Head+Office/@9.0311,38.7630,17z/data=!3m1!4b1!4m6!3m5!1s0x0:0x0!8m2!3d9.0311!4d38.7630!16s%2Fg%2F11s5l5l5l5",
+    coordinates: {
+      lat: 9.0311,
+      lng: 38.7630
+    }
   };
 
   const teamMembers = [
@@ -77,14 +80,11 @@ const ContactSection: React.FC = () => {
       <div className="max-w-7xl mx-auto px-6 lg:px-8 relative z-10">
         {/* Centered Heading */}
         <div className="text-center max-w-3xl mx-auto mb-20">
-          <motion.div
-            initial={{ opacity: 0, y: 10 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-gray-100 border border-gray-200 mb-6"
-          >
-            <MapPin size={16} className="text-gray-500" />
-            <span className="text-sm font-black uppercase tracking-widest text-gray-500">Contact Us</span>
-          </motion.div>
+           <div className="flex items-center justify-center gap-2 mb-6">
+            <span className="w-10 h-[2px] bg-red-500"></span>
+            <span className="text-[10px] font-black text-red-600 tracking-[0.4em] uppercase">Contact Us </span>
+
+          </div>
 
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
@@ -113,32 +113,51 @@ const ContactSection: React.FC = () => {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="relative h-full min-h-[400px] rounded-3xl overflow-hidden shadow-xl border border-gray-100"
+            className="relative h-[500px] lg:h-[600px] rounded-2xl overflow-hidden shadow-2xl border-2 border-gray-100 transform hover:shadow-2xl hover:shadow-red-500/10 transition-all duration-300"
           >
+            <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-black/10 z-10 rounded-2xl pointer-events-none"></div>
+            
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3940.358174897084!2d38.760397!3d9.031084!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x1b9b9b9b9b9b9b9b9!2sRas%20Mekonnen%20Ave!5e0!3m2!1sen!2set!4v1620000000000!5m2!1sen!2set"
+              src={`https://maps.google.com/maps?q=${officeLocation.coordinates.lat},${officeLocation.coordinates.lng}&z=17&output=embed&z=17&t=m&hl=en&ie=UTF8&iwloc=B`}
               width="100%"
               height="100%"
-              style={{ border: 0 }}
+              style={{ border: 0, filter: 'saturate(1.2) contrast(1.1)' }}
               allowFullScreen
-              loading="lazy"
+              loading="eager"
               className="absolute inset-0 w-full h-full"
-              title="Office Location on Map"
-            ></iframe>
+              title="Tsedey Bank Head Office Location"
+              aria-label="Interactive map showing Tsedey Bank Head Office location"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
 
-            <div className="absolute bottom-6 left-1/2 -translate-x-1/2 px-6 py-3 bg-white rounded-full shadow-lg flex items-center">
-              <MapPin size={18} className="text-red-500 mr-2" fill="currentColor" />
-              <span className="font-medium">We are here</span>
+            {/* Custom Marker */}
+            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12">
+              <div className="relative w-full h-full">
+                <div className="absolute inset-0 bg-red-600 rounded-full animate-ping opacity-20"></div>
+                <div className="absolute inset-1 bg-white rounded-full flex items-center justify-center shadow-lg">
+                  <MapPin size={24} className="text-red-600" fill="currentColor" />
+                </div>
+              </div>
             </div>
 
+            {/* Location Badge */}
+            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-20">
+              <div className="bg-white/90 backdrop-blur-sm px-6 py-3 rounded-full shadow-xl flex items-center space-x-2 border border-gray-100">
+                <div className="w-3 h-3 bg-red-500 rounded-full animate-pulse"></div>
+                <span className="font-medium text-gray-800">Tsedey Bank HQ</span>
+              </div>
+            </div>
+
+            {/* Overlay Button */}
             <a
               href={officeLocation.mapUrl}
               target="_blank"
               rel="noopener noreferrer"
-              className="absolute top-4 right-4 bg-white p-3 rounded-full shadow-lg hover:bg-gray-50 transition-colors"
+              className="absolute bottom-8 right-8 z-20 bg-black text-white px-6 py-3 rounded-full font-medium text-sm hover:bg-red-600 transition-all duration-300 flex items-center space-x-2 shadow-lg hover:shadow-red-500/30"
               aria-label="Open in Google Maps"
             >
-              <ArrowRight size={20} className="text-gray-800" />
+              <span>Open in Maps</span>
+              <ArrowRight size={16} />
             </a>
           </motion.div>
 

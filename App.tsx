@@ -41,7 +41,7 @@ const App: React.FC = () => {
         {/* </div>
       </main> */}
       {/* App Download Section */}
-      <div id="mobile-app" className="pt-24">
+      <div id="mobile-app" className="bg-white">
         <AppDownload />
       </div>
       {/* <div id="contact" className="pt-8"> */}
