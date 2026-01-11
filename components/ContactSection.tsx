@@ -1,9 +1,11 @@
 
-import React from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { ArrowRight, MapPin } from 'lucide-react';
 
 const ContactSection: React.FC = () => {
+  const [isMapLoaded, setIsMapLoaded] = useState(false);
+
   const officeLocation = {
     address: "Tsedey Bank Head Office, Ras Mekonen Ave",
     city: "Leghar, Addis Ababa, Ethiopia",
@@ -117,18 +119,37 @@ const ContactSection: React.FC = () => {
           >
             <div className="absolute inset-0 bg-gradient-to-br from-black/5 to-black/10 z-10 rounded-2xl pointer-events-none"></div>
             
-            <iframe
-              src={`https://maps.google.com/maps?q=${officeLocation.coordinates.lat},${officeLocation.coordinates.lng}&z=17&output=embed&z=17&t=m&hl=en&ie=UTF8&iwloc=B`}
-              width="100%"
-              height="100%"
-              style={{ border: 0, filter: 'saturate(1.2) contrast(1.1)' }}
-              allowFullScreen
-              loading="eager"
-              className="absolute inset-0 w-full h-full"
-              title="Tsedey Bank Head Office Location"
-              aria-label="Interactive map showing Tsedey Bank Head Office location"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+            {!isMapLoaded ? (
+              <div className="absolute inset-0 flex flex-col items-center justify-center bg-gradient-to-br from-gray-100 to-gray-200">
+                <div className="text-center px-6">
+                  <p className="text-sm font-semibold text-gray-900">Map is paused to improve page speed</p>
+                  <p className="text-sm text-gray-600 mt-1">Click to load Google Maps.</p>
+
+                  <button
+                    type="button"
+                    onClick={() => setIsMapLoaded(true)}
+                    className="mt-4 inline-flex items-center gap-2 rounded-full bg-black px-6 py-3 text-sm font-semibold text-white hover:bg-red-600 transition-colors"
+                    aria-label="Load interactive Google Map"
+                  >
+                    Load map
+                    <ArrowRight size={16} />
+                  </button>
+                </div>
+              </div>
+            ) : (
+              <iframe
+                src={`https://maps.google.com/maps?q=${officeLocation.coordinates.lat},${officeLocation.coordinates.lng}&z=17&output=embed&t=m&hl=en&ie=UTF8&iwloc=B`}
+                width="100%"
+                height="100%"
+                style={{ border: 0, filter: 'saturate(1.2) contrast(1.1)' }}
+                allowFullScreen
+                loading="lazy"
+                className="absolute inset-0 w-full h-full"
+                title="Tsedey Bank Head Office Location"
+                aria-label="Interactive map showing Tsedey Bank Head Office location"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            )}
 
             {/* Custom Marker */}
             <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 z-20 w-12 h-12">

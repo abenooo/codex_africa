@@ -1,11 +1,12 @@
-import React from 'react';
+import React, { Suspense } from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
-import Features from './components/Features';
-import ProcessTimeline from './components/ProcessTimeline';
-import TeamSection from './components/TeamSection';
-import AppDownload from './components/AppDownload';
-import ContactSection from './components/ContactSection';
+
+const ProcessTimeline = React.lazy(() => import('./components/ProcessTimeline'));
+const Features = React.lazy(() => import('./components/Features'));
+const TeamSection = React.lazy(() => import('./components/TeamSection'));
+const AppDownload = React.lazy(() => import('./components/AppDownload'));
+const ContactSection = React.lazy(() => import('./components/ContactSection'));
 // import ComparisonSection from './components/ComparisonSection';
 // import ValueDelaySection from './components/ValueDelaySection';
 
@@ -23,29 +24,36 @@ const App: React.FC = () => {
       {/* Process Timeline Section */}
       <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
         <div className="card-stack space-y-12">
-          <ProcessTimeline />
+          <Suspense fallback={null}>
+            <ProcessTimeline />
+          </Suspense>
         </div>
       </main>
 
       {/* Features Section */}
       <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
         <div className="card-stack space-y-12">
-          <Features />
+          <Suspense fallback={null}>
+            <Features />
+          </Suspense>
         </div>
       </main>
 
       {/* Team Section */}
-      {/* <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
-        <div className="card-stack space-y-12"> */}
-          <TeamSection />
-        {/* </div>
-      </main> */}
+      <Suspense fallback={null}>
+        <TeamSection />
+      </Suspense>
+
       {/* App Download Section */}
       <div id="mobile-app" className="bg-white">
-        <AppDownload />
+        <Suspense fallback={null}>
+          <AppDownload />
+        </Suspense>
       </div>
-      {/* <div id="contact" className="pt-8"> */}
+
+      <Suspense fallback={null}>
         <ContactSection />
+      </Suspense>
       {/* </div> */}
         {/* </div>
       </main> */}

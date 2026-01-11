@@ -1,6 +1,4 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import AppDownload from './AppDownload';
 
 export const Hero = () => {
   return (
@@ -8,38 +6,19 @@ export const Hero = () => {
       <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Column: Messaging */}
-        <motion.div 
-          initial={{ opacity: 0, x: -50 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.8 }}
-          className="flex flex-col items-start z-40 relative mt-8 lg:mt-16"
-        >
+        <div className="flex flex-col items-start z-40 relative mt-8 lg:mt-16">
           
 
-          <motion.h1 
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-gray-900"
-          >
+          <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold mb-6 leading-[1.1] text-gray-900">
             Modern SACCO software for Africa
-          </motion.h1>
+          </h1>
 
-          <motion.p 
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.2 }}
-            className="text-lg md:text-xl text-gray-600 mb-10 max-w-xl leading-relaxed"
-          >
+          <p className="text-lg md:text-xl text-gray-600 mb-10 max-w-xl leading-relaxed">
             Launch member onboarding, savings, loans, and mobile banking from one secure platform — in minutes, not months.
-          </motion.p>
+          </p>
 
           {/* CTA Buttons */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ delay: 0.4 }}
-            className="flex flex-col sm:flex-row gap-4 mb-8"
-          >
+          <div className="flex flex-col sm:flex-row gap-4 mb-8">
             <a 
               href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo" 
               target="_blank"
@@ -51,15 +30,10 @@ export const Hero = () => {
             <button className="bg-white text-gray-900 border-2 border-gray-300 px-8 py-4 rounded-full font-bold text-sm whitespace-nowrap hover:bg-gray-50 transition-all duration-300 shadow-lg active:scale-95">
               View pricing
             </button>
-          </motion.div>
+          </div>
 
           {/* Features List */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 0.6 }}
-            className="flex flex-col gap-3"
-          >
+          <div className="flex flex-col gap-3">
             <div className="flex items-center gap-2 text-gray-700 font-medium text-sm">
               <svg className="w-5 h-5 text-emerald-600" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
@@ -78,16 +52,11 @@ export const Hero = () => {
               </svg>
               Launch in minutes
             </div>
-          </motion.div>
-        </motion.div>
+          </div>
+        </div>
 
         {/* Right Column: Device Mockups */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.2, ease: "easeOut" }}
-          className="relative h-[450px] lg:h-[650px] flex items-start justify-center lg:justify-end pt-8 lg:pt-12"
-        >
+        <div className="relative h-[450px] lg:h-[650px] flex items-start justify-center lg:justify-end pt-8 lg:pt-12">
           <div className="relative w-full h-full flex items-center justify-end">
             
             {/* Desktop Monitor Mockup - Reporting Interface with perspective */}
@@ -187,12 +156,7 @@ export const Hero = () => {
             </div>
 
             {/* Mobile Phone Mockup - Larger size for better readability */}
-            <motion.div 
-              initial={{ x: 40, y: 40, opacity: 0 }}
-              animate={{ x: 0, y: 0, opacity: 1 }}
-              transition={{ duration: 1, delay: 0.8, ease: "backOut" }}
-              className="absolute right-[2%] lg:right-[5%] bottom-[-8%] lg:bottom-[-6%] w-32 md:w-40 lg:w-48 z-40"
-            >
+            <div className="absolute right-[2%] lg:right-[5%] bottom-[-8%] lg:bottom-[-6%] w-32 md:w-40 lg:w-48 z-40">
               <div className="bg-black p-1.5 rounded-[2rem] border-[3px] border-[#2a2a2a] shadow-[0_25px_50px_rgba(0,0,0,0.8)] relative overflow-hidden">
                  <div className="absolute top-2.5 left-1/2 -translate-x-1/2 w-14 md:w-16 h-3 bg-black rounded-full z-50 border border-gray-800" />
                  <div className="rounded-[1.7rem] w-full aspect-[9/19.5] overflow-hidden relative">
@@ -342,10 +306,10 @@ export const Hero = () => {
                  </div>
                  <div className="absolute inset-0 pointer-events-none bg-gradient-to-tr from-white/10 to-transparent opacity-30 rounded-[2rem]" />
               </div>
-            </motion.div>
+            </div>
 
           </div>
-        </motion.div>
+        </div>
 
       </div>
     </div>
