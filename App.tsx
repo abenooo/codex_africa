@@ -1,6 +1,7 @@
-import React, { Suspense } from 'react';
+import React from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
+import { DeferredSection } from './components/DeferredSection';
 
 const ProcessTimeline = React.lazy(() => import('./components/ProcessTimeline'));
 const Features = React.lazy(() => import('./components/Features'));
@@ -24,36 +25,36 @@ const App: React.FC = () => {
       {/* Process Timeline Section */}
       <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
         <div className="card-stack space-y-12">
-          <Suspense fallback={null}>
+          <DeferredSection>
             <ProcessTimeline />
-          </Suspense>
+          </DeferredSection>
         </div>
       </main>
 
       {/* Features Section */}
       <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
         <div className="card-stack space-y-12">
-          <Suspense fallback={null}>
+          <DeferredSection>
             <Features />
-          </Suspense>
+          </DeferredSection>
         </div>
       </main>
 
       {/* Team Section */}
-      <Suspense fallback={null}>
+      <DeferredSection>
         <TeamSection />
-      </Suspense>
+      </DeferredSection>
 
       {/* App Download Section */}
       <div id="mobile-app" className="bg-white">
-        <Suspense fallback={null}>
+        <DeferredSection>
           <AppDownload />
-        </Suspense>
+        </DeferredSection>
       </div>
 
-      <Suspense fallback={null}>
+      <DeferredSection>
         <ContactSection />
-      </Suspense>
+      </DeferredSection>
       {/* </div> */}
         {/* </div>
       </main> */}

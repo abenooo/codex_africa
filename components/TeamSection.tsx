@@ -9,7 +9,7 @@ const originalMembers: TeamMember[] = [
     id: '1',
     name: 'Matyas Abera',
     role: 'Co-Founder • Senior Business Analyst',
-    image: '/maty.png'
+    image: '/maty.webp'
   },
   {
     id: '2',

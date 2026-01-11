@@ -215,7 +215,7 @@ const AppDownload: React.FC = () => {
             className={`flex flex-col items-center p-2 ${activeTab === item.id ? 'text-yellow-500' : 'text-gray-500'}`}
           >
             {item.icon}
-            <span className="text-xs mt-1">{item.label}</span>
+            <span className="text-xs mt-1 text-gray-800">{item.label}</span>
           </button>
         ))}
       </nav>
