@@ -237,7 +237,7 @@ const AppDownload: React.FC = () => {
               {/* Left Column - Text Content */}
               <div className="lg:col-span-5 space-y-6 py-8">
               <h2 className="text-4xl md:text-5xl font-black text-gray-900 leading-tight">
-                Business Success
+                Mobile App
               </h2>
               
               <div className="space-y-4">

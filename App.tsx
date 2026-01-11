@@ -39,9 +39,9 @@ const App: React.FC = () => {
         {/* </div>
       </main> */}
       {/* App Download Section */}
-      {/* <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
-        <div className="card-stack space-y-12"> */}
-          <AppDownload />
+      <div id="mobile-app" className="pt-24">
+        <AppDownload />
+      </div>
         {/* </div>
       </main> */}
       {/* Comparison Section */}
