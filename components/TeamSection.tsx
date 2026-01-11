@@ -170,10 +170,6 @@ const TeamSection: React.FC = () => {
             </button>
           </div>
 
-          <div className="flex items-center gap-2">
-            <span className="w-2 h-2 rounded-full bg-gray-300"></span>
-            <span className="text-xs font-bold text-gray-500 tracking-[0.2em] uppercase">FAQ</span>
-          </div>
         </div>
 
       </div>

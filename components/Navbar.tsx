@@ -1,20 +1,9 @@
-
 import React, { useState, useEffect } from 'react';
-import { Menu, X, ArrowRight, Zap, ArrowUpRight, History, LayoutGrid, Users, Smartphone } from 'lucide-react';
+import { Menu, X, ArrowRight, Zap, ArrowUpRight, History, LayoutGrid, Users, Smartphone, Play, Video } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 const Navbar: React.FC = () => {
-  const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 30);
-    };
-    window.addEventListener('scroll', handleScroll, { passive: true });
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   const handleNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
@@ -34,27 +23,27 @@ const Navbar: React.FC = () => {
   };
 
   return (
-    <div className={`fixed top-0 left-0 right-0 z-[100] px-4 sm:px-6 lg:px-12 transition-all duration-700 ease-out ${isScrolled ? 'pt-4' : 'pt-10'}`}>
-      <nav 
-        className={`mx-auto max-w-5xl h-16 sm:h-20 flex items-center justify-between px-6 sm:px-10 rounded-full border transition-all duration-500 ${
-          isScrolled 
-          ? 'bg-white/95 backdrop-blur-2xl border-white/50 shadow-[0_30px_60px_-15px_rgba(0,0,0,0.1)]' 
-          : 'bg-white/40 backdrop-blur-md border-white/20 shadow-sm'
-        }`}
+    <div className="fixed top-0 left-0 right-0 z-[100] overflow-x-hidden">
+      <div className="w-full max-w-[100vw] px-4 sm:px-6 lg:px-12 pt-2 mx-auto">
+      <nav className="w-full max-w-6xl mx-auto min-w-0 h-14 sm:h-16 flex items-center justify-between px-6 sm:px-8 rounded-full border bg-white/95 backdrop-blur-2xl border-white/50 shadow-[0_10px_30px_-5px_rgba(0,0,0,0.1)]"
       >
         
         {/* Logo Section */}
         <div 
-          className="flex items-center gap-4 cursor-pointer group" 
+          className="flex-shrink-0 flex items-center gap-4 cursor-pointer group" 
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
         >
-           <div className="flex flex-col">
-             <span className="text-xl font-black text-gray-900 tracking-tight leading-none uppercase whitespace-nowrap">Codex Africa</span>
-           </div>
+          <div className="h-10 sm:h-12 w-auto">
+            <img 
+              src="/image.png" 
+              alt="Codex Africa" 
+              className="h-full w-auto dark:hidden"
+            />
+          </div>
         </div>
 
         {/* Desktop Navigation - Centered & Icon-Free for a cleaner look on large media */}
-        <div className="hidden lg:flex items-center gap-2">
+        <div className="hidden lg:flex items-center gap-1 flex-1 min-w-0 justify-center px-2">
            {[
              { label: 'Process', href: '#process' },
              { label: 'Team', href: '#team' },
@@ -66,7 +55,7 @@ const Navbar: React.FC = () => {
                key={item.label}
                href={item.href} 
                onClick={(e) => handleNavClick(e, item.href)}
-               className="px-6 py-2.5 rounded-full text-[11px] font-bold text-gray-500 hover:text-black uppercase tracking-[0.25em] transition-all hover:bg-gray-50/80 active:scale-95"
+               className="px-4 py-2 rounded-full text-xs font-bold text-gray-500 hover:text-black uppercase tracking-[0.2em] transition-all hover:bg-gray-50/80 active:scale-95 whitespace-nowrap"
              >
                {item.label}
              </a>
@@ -74,23 +63,31 @@ const Navbar: React.FC = () => {
         </div>
 
         {/* Right Action Section */}
-        <div className="flex items-center gap-4">
+        <div className="flex-shrink-0 flex items-center gap-4">
            {/* Desktop CTA */}
-           <button className="hidden sm:flex bg-black text-white text-[10px] font-bold px-8 py-4 rounded-full uppercase tracking-widest items-center gap-3 hover:bg-red-600 transition-all duration-500 shadow-xl active:scale-95">
-             Get Started
-             <ArrowUpRight size={14} strokeWidth={3} />
-           </button>
+           <a 
+            href="https://cal.com/abenezer-kifle-t8tqcf/platform-demo" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hidden sm:flex flex-shrink-0 bg-black text-white text-xs sm:text-sm font-medium px-5 py-2 sm:py-2.5 rounded-full items-center gap-2 hover:bg-red-600 transition-all duration-300 shadow-md active:scale-95 whitespace-nowrap"
+          >
+             <div className="flex-shrink-0 bg-white/20 p-1.5 rounded-full">
+               <Video className="w-3.5 h-3.5" />
+             </div>
+             Book A Session
+           </a>
 
            {/* Mobile Menu Button - Standard behavior, hidden on LG+ */}
            <button
              onClick={toggleMobileMenu}
-             className="lg:hidden p-3 text-gray-900 bg-white/50 border border-white/50 rounded-full hover:bg-white transition-all shadow-sm active:scale-90"
+             className="lg:hidden p-2 text-gray-900 bg-white/50 border border-white/50 rounded-full hover:bg-white transition-all shadow-sm active:scale-90"
              aria-label="Toggle Menu"
            >
              {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
            </button>
         </div>
       </nav>
+      </div>
 
       {/* Mobile Menu Overlay */}
       <AnimatePresence>
