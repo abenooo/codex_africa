@@ -7,13 +7,15 @@ const Navbar: React.FC = () => {
   const toggleMobileMenu = () => setIsMobileMenuOpen(!isMobileMenuOpen);
 
   useEffect(() => {
-    const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id], div[id]'))
-      .filter((el) => el.id);
-
     const getActiveSection = () => {
       // Account for fixed navbar height + a bit of breathing room.
       const offset = 120;
       const scrollPos = window.scrollY + offset;
+
+      // Re-scan on every call so lazily-mounted sections (Suspense/DeferredSection)
+      // are included as soon as they appear in the DOM.
+      const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id], div[id]'))
+        .filter((el) => el.id);
 
       // Find the last section whose top is above the current scroll position.
       let current: string | null = null;
