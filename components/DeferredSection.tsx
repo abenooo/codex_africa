@@ -8,7 +8,7 @@ type Props = {
   minHeightClassName?: string;
 };
 
-export function DeferredSection({ children, rootMargin = '600px 0px', minHeightClassName }: Props) {
+export function DeferredSection({ children, rootMargin = '200px 0px', minHeightClassName }: Props) {
   const { ref, inView } = useInViewOnce<HTMLDivElement>({ rootMargin });
 
   return (

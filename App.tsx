@@ -25,7 +25,7 @@ const App: React.FC = () => {
       {/* Process Timeline Section */}
       <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
         <div className="card-stack space-y-12">
-          <DeferredSection>
+          <DeferredSection rootMargin="0px 0px">
             <ProcessTimeline />
           </DeferredSection>
         </div>
