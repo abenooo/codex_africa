@@ -78,7 +78,7 @@ const AppDownload: React.FC = () => {
   const MobileAppPreview = () => (
     <div className="relative w-full max-w-[375px] h-[700px] bg-white rounded-[40px] shadow-2xl overflow-hidden flex flex-col">
       {/* Status Bar */}
-      <div className="flex justify-between items-center px-6 py-2 bg-yellow-500 text-white text-xs">
+      <div className="flex justify-between items-center px-6 py-2 bg-yellow-500 text-gray-900 text-xs">
         <span>9:41</span>
         <div className="flex space-x-1">
           <span>📶</span>
@@ -87,11 +87,11 @@ const AppDownload: React.FC = () => {
       </div>
 
       {/* Header */}
-      <header className="bg-yellow-500 text-white p-4 flex-shrink-0">
+      <header className="bg-yellow-500 text-gray-900 p-4 flex-shrink-0">
         <div className="flex justify-between items-center mb-4">
           <div>
             <h1 className="text-xl font-bold">ETHIO SACCOS</h1>
-            <p className="text-sm opacity-80">Welcome, {user.name}</p>
+            <p className="text-sm text-gray-800">Welcome, {user.name}</p>
           </div>
           <div className="flex items-center space-x-2">
             <button
@@ -123,11 +123,11 @@ const AppDownload: React.FC = () => {
 
           <div className="flex justify-between items-center mb-4">
             <div>
-              <p className="text-sm opacity-80">Account Number</p>
+              <p className="text-sm text-gray-800">Account Number</p>
               <p className="font-medium">{user.accountNumber}</p>
             </div>
             <div className="text-right">
-              <p className="text-sm opacity-80">Available Balance</p>
+              <p className="text-sm text-gray-800">Available Balance</p>
               <p className="font-bold text-xl">
                 {showBalance ? `ETB ${user.balance.toLocaleString()}` : '•••••• ETB'}
               </p>
@@ -145,7 +145,7 @@ const AppDownload: React.FC = () => {
               <button className="text-xs bg-white bg-opacity-20 px-3 py-1 rounded-full">
                 View Details
               </button>
-              <button className="text-xs bg-white text-yellow-600 px-3 py-1 rounded-full">
+              <button className="text-xs bg-white text-gray-900 px-3 py-1 rounded-full">
                 Top Up
               </button>
             </div>
