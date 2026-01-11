@@ -9,13 +9,13 @@ interface FeatureCardProps {
   ctaText: string;
 }
 
-const FeatureCard: React.FC<FeatureCardProps> = ({ 
-  title, 
-  description, 
-  bgColor, 
-  imgUrl, 
+const FeatureCard: React.FC<FeatureCardProps> = ({
+  title,
+  description,
+  bgColor,
+  imgUrl,
   index,
-  ctaText 
+  ctaText
 }) => {
   return (
     <div
@@ -51,10 +51,10 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
         {/* Right Image */}
         <div className="flex-1 p-8 lg:p-12">
           <div className="w-full h-[400px] lg:h-[550px] rounded-[40px] overflow-hidden shadow-2xl">
-            <img 
-              src={imgUrl} 
-              alt={title} 
-              className="w-full h-full object-cover hover:scale-110 transition-transform duration-[2000ms]" 
+            <img
+              src={imgUrl}
+              alt={title}
+              className="w-full h-full object-cover hover:scale-110 transition-transform duration-[2000ms]"
             />
           </div>
         </div>
@@ -91,6 +91,10 @@ const Features: React.FC = () => {
   return (
     <section id="features" className="py-20">
       <div className="container mx-auto px-4">
+        <div className="flex items-center justify-center gap-2 mb-6">
+          <span className="w-10 h-[2px] bg-red-500"></span>
+          <span className="text-[10px] font-black text-red-600 tracking-[0.4em] uppercase">Our Core Features</span>
+        </div>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Core Features
@@ -99,7 +103,7 @@ const Features: React.FC = () => {
             Powerful tools designed to help your SACCO thrive in the digital age
           </p>
         </div>
-        
+
         <div className="relative">
           {features.map((feature, index) => (
             <FeatureCard
