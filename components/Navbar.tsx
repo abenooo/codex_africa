@@ -73,11 +73,23 @@ const Navbar: React.FC = () => {
             }}
           >
             <div className="h-16 sm:h-12 w-auto">
-              <img 
-                src="/image.png" 
-                alt="Codex Africa" 
-                className="h-full w-auto dark:hidden"
-              />
+              <picture>
+                <source
+                  type="image/webp"
+                  srcSet="/image-168w.webp 168w, /image-336w.webp 336w"
+                  sizes="(min-width: 640px) 168px, 168px"
+                />
+                <img
+                  src="/image-168w.png"
+                  srcSet="/image-168w.png 168w, /image-336w.png 336w"
+                  sizes="(min-width: 640px) 168px, 168px"
+                  width={168}
+                  height={112}
+                  alt="Codex Africa"
+                  className="h-full w-auto dark:hidden"
+                  decoding="async"
+                />
+              </picture>
             </div>
           </div>
 
@@ -176,7 +188,7 @@ const Navbar: React.FC = () => {
                   </div>
                   <span>{item.label}</span>
                 </div>
-                <ArrowRight size={20} className="text-gray-300 group-hover:text-black transition-colors" />
+                <ArrowRight size={20} className="text-gray-500 group-hover:text-black transition-colors" />
               </a>
             ))}
             <div className="pt-4">

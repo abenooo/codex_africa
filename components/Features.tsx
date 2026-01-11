@@ -28,7 +28,7 @@ const FeatureCard: React.FC<FeatureCardProps> = ({
       >
         {/* Left Content */}
         <div className="flex-1 p-12 lg:p-20 flex flex-col justify-center">
-          <p className="text-[12px] font-black uppercase tracking-[0.3em] text-gray-400 mb-4">CORE PLATFORM</p>
+          <p className="text-[12px] font-black uppercase tracking-[0.3em] text-gray-600 mb-4">CORE PLATFORM</p>
           <h2 className="text-5xl lg:text-7xl font-black text-[#1a1a1a] leading-[1.05] tracking-tighter mb-8">
             {title}
           </h2>

@@ -94,10 +94,18 @@ const AppDownload: React.FC = () => {
             <p className="text-sm opacity-80">Welcome, {user.name}</p>
           </div>
           <div className="flex items-center space-x-2">
-            <button className="p-2 rounded-full bg-yellow-400 bg-opacity-30">
+            <button
+              className="p-2 rounded-full bg-yellow-400 bg-opacity-30"
+              aria-label="Notifications"
+              type="button"
+            >
               <Bell className="w-5 h-5" />
             </button>
-            <button className="p-2 rounded-full bg-yellow-400 bg-opacity-30">
+            <button
+              className="p-2 rounded-full bg-yellow-400 bg-opacity-30"
+              aria-label="Settings"
+              type="button"
+            >
               <Settings className="w-5 h-5" />
             </button>
           </div>
@@ -348,6 +356,8 @@ const AppDownload: React.FC = () => {
                 <button
                   onClick={() => setIsTransactionOpen(false)}
                   className="p-2 rounded-full hover:bg-gray-100"
+                  aria-label="Close transaction modal"
+                  type="button"
                 >
                   <X className="w-5 h-5" />
                 </button>
