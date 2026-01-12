@@ -56,8 +56,8 @@ const Footer: React.FC = () => {
   ];
 
   return (
-    <footer className="bg-[#060B1A] text-gray-400 py-20 px-6 lg:px-12 border-t border-white/5">
-      <div className="max-w-[100rem] mx-auto">
+    <footer className="bg-[#060B1A] text-gray-400 py-20 border-t border-white/5">
+      <div className="mx-auto w-full max-w-[1400px] px-6 sm:px-8 lg:px-12">
         
         {/* Main Links Grid */}
         <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-12 mb-20">
@@ -95,21 +95,21 @@ const Footer: React.FC = () => {
         </div>
 
         {/* Branding & Copyright */}
-        <div className="flex flex-col items-center text-center space-y-4">
+        <div className="flex flex-col items-center text-center space-y-6">
           <div className="flex items-center gap-3 group">
             <img
               src="/image-168w.png"
               srcSet="/image-168w.png 168w, /image-336w.png 336w"
-              sizes="168px"
-              width={48}
-              height={32}
+              sizes="(min-width: 1024px) 96px, 80px"
+              width={96}
+              height={64}
               alt="Codex Africa"
-              className="h-8 w-auto"
+              className="h-14 w-auto lg:h-16"
               decoding="async"
             />
             <div className="leading-tight text-left">
-              <div className="text-2xl font-black tracking-tighter text-white">CODEX</div>
-              <div className="text-sm font-bold text-white/70">Codex Africa</div>
+              <div className="text-2xl font-black tracking-tighter text-white">Codex Africa</div>
+              <div className="text-sm font-bold text-white/70">Empowering Saccos in Ethiopia and Beyond</div>
             </div>
           </div>
 
