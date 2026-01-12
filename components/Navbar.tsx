@@ -12,12 +12,15 @@ const Navbar: React.FC = () => {
       const offset = 120;
       const scrollPos = window.scrollY + offset;
 
-      // Re-scan on every call so lazily-mounted sections (Suspense/DeferredSection)
-      // are included as soon as they appear in the DOM.
-      const sections = Array.from(document.querySelectorAll<HTMLElement>('section[id], div[id]'))
-        .filter((el) => el.id);
+      // Only track the sections we actually have in the navbar.
+      // Scanning every `[id]` can pick up unrelated ids (e.g. "root" or nested mockup ids)
+      // which makes the navbar look like it's not highlighting anything.
+      const navIds = ['process', 'features', 'team', 'mobile-app', 'contact'] as const;
+      const sections = navIds
+        .map((id) => document.getElementById(id))
+        .filter((el): el is HTMLElement => Boolean(el));
 
-      // Find the last section whose top is above the current scroll position.
+      // Find the last nav section whose top is above the current scroll position.
       let current: string | null = null;
       for (const el of sections) {
         if (el.offsetTop <= scrollPos) current = `#${el.id}`;
