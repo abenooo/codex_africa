@@ -67,34 +67,54 @@ const Features: React.FC = () => {
   const features = [
     {
       title: 'Digital Member Management',
-      description: 'Streamline your SACCO operations with our comprehensive digital member management system that handles everything from member onboarding to account management.',
+      description:
+        'Streamline your SACCO operations with a comprehensive digital member management system that handles everything from onboarding to account management.',
       bgColor: '#F4F7FF',
-      imgUrl: 'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=1200',
-      ctaText: 'Book Now'
+      imgUrl:
+        'https://images.unsplash.com/photo-1556740749-887f6717d7e4?auto=format&fit=crop&q=80&w=1200',
+      ctaText: 'Book Now',
     },
     {
       title: 'Automated Savings & Loans',
-      description: 'Efficiently manage savings and loan products with our automated system that ensures accuracy and saves time for both members and administrators.',
+      description:
+        'Manage savings and loan products with an automated system that improves accuracy and saves time for members and administrators.',
       bgColor: '#F0FBF7',
-      imgUrl: 'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80&w=1200',
-      ctaText: 'Book Now'
+      imgUrl:
+        'https://images.unsplash.com/photo-1601597111158-2fceff292cdc?auto=format&fit=crop&q=80&w=1200',
+      ctaText: 'Book Now',
     },
     {
       title: 'Advanced Reporting',
-      description: 'Generate comprehensive reports and gain valuable insights into your SACCO\'s performance with our advanced reporting tools.',
+      description:
+        "Generate detailed reports and gain insights into your SACCO's performance with advanced reporting dashboards.",
       bgColor: '#FFF6ED',
-      imgUrl: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
-      ctaText: 'Book Now'
-    }
+      imgUrl:
+        'https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=1200',
+      ctaText: 'Book Now',
+    },
+    {
+      title: 'Secure Payments & Collections',
+      description:
+        'Accept contributions and repayments securely with integrated collections and clear transaction tracking.',
+      bgColor: '#F3F0FF',
+      imgUrl:
+        'https://images.unsplash.com/photo-1586880244543-0528a802be69?auto=format&fit=crop&q=80&w=1200',
+      ctaText: 'Book Now',
+    },
+    {
+      title: 'Compliance & Audit Trail',
+      description:
+        'Stay compliant with built-in controls, approvals, and an auditable history of every key action.',
+      bgColor: '#ECFEFF',
+      imgUrl:
+        'https://images.unsplash.com/photo-1554224155-1696413565d3?auto=format&fit=crop&q=80&w=1200',
+      ctaText: 'Book Now',
+    },
   ];
 
   return (
     <section id="features" className="py-20">
       <div className="container mx-auto px-4">
-        <div className="flex items-center justify-center gap-2 mb-6">
-          <span className="w-10 h-[2px] bg-red-500"></span>
-          <span className="text-[10px] font-black text-red-600 tracking-[0.4em] uppercase">Our Core Features</span>
-        </div>
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-4">
             Our Core Features

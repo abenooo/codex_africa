@@ -2,6 +2,7 @@ import React from 'react';
 import Hero from './components/Hero';
 import Navbar from './components/Navbar';
 import { DeferredSection } from './components/DeferredSection';
+import Footer from './components/Footer';
 
 const ProcessTimeline = React.lazy(() => import('./components/ProcessTimeline'));
 const Features = React.lazy(() => import('./components/Features'));
@@ -13,7 +14,7 @@ const ContactSection = React.lazy(() => import('./components/ContactSection'));
 
 const App: React.FC = () => {
   return (
-    <div className="min-h-screen bg-[#f8f9fa] pb-24">
+    <div className="min-h-screen bg-[#f8f9fa]">
       <Navbar />
       {/* Hero Section */}
       {/* <main className="pt-24 px-4 md:px-8 max-w-[1400px] mx-auto">
@@ -68,6 +69,8 @@ const App: React.FC = () => {
           {/* <ValueDelaySection /> */}
       
       {/* </main> */}
+
+      <Footer />
     </div>
   );
 };
