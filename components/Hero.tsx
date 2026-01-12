@@ -2,7 +2,7 @@ import React from 'react';
 
 export const Hero = () => {
   return (
-    <div className="relative min-h-screen flex items-center justify-center bg-[#F8F9FA] overflow-hidden px-6 py-20 lg:py-32">
+    <div className="relative min-h-screen flex items-center justify-center bg-[#F8F9FA] overflow-hidden px-6 py-20 lg:py-24">
       <div className="max-w-7xl w-full mx-auto grid lg:grid-cols-2 gap-16 items-center">
         
         {/* Left Column: Messaging */}
@@ -56,95 +56,24 @@ export const Hero = () => {
         </div>
 
         {/* Right Column: Device Mockups */}
-        <div className="relative h-[450px] lg:h-[650px] flex items-start justify-center lg:justify-end pt-8 lg:pt-12">
+        <div className="relative h-[450px] lg:h-[760px] flex items-start justify-center lg:justify-end pt-2 lg:pt-0">
           <div className="relative w-full h-full flex items-center justify-end">
             
             {/* Desktop Monitor Mockup - Reporting Interface with perspective */}
-            <div className="relative z-10 w-[95%] lg:w-[110%] transform translate-y-0 lg:translate-y-0" style={{ perspective: '1500px' }}>
+            <div className="relative z-10 w-[98%] lg:w-[125%] xl:w-[140%] transform translate-y-0 lg:-translate-y-8" style={{ perspective: '1500px' }}>
               <div className="bg-gray-300 p-[4px] rounded-[1.5rem] shadow-[0_40px_80px_rgba(0,0,0,0.4)]" style={{ transform: 'rotateY(-15deg) rotateX(10deg) translateY(0)' }}>
                 <div className="bg-[#0f0f0f] p-[10px] rounded-[1.3rem]">
                   <div className="rounded-[0.8rem] overflow-hidden bg-white aspect-[16/10] relative">
-                    {/* Reporting Dashboard Content */}
-                    <div className="w-full h-full bg-white p-4 flex text-[10px]">
-                      {/* Sidebar */}
-                      <div className="w-[15%] bg-white border-r border-gray-200 pr-2 space-y-0.5">
-                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Dashboard</div>
-                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Reports</div>
-                        <div className="py-1.5 px-2 bg-gray-100 text-gray-900 font-semibold rounded text-[9px]">Reporting</div>
-                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Compliance</div>
-                        <div className="py-1.5 px-2 text-gray-600 font-medium text-[9px]">Analytics</div>
-                      </div>
-                      
-                      {/* Main Content */}
-                      <div className="flex-1 pl-4">
-                        <div className="flex justify-between items-start mb-3">
-                          <div>
-                            <h2 className="text-lg font-bold text-gray-900 mb-1">Reporting</h2>
-                            <div className="flex gap-4 text-[9px]">
-                              <button className="pb-1 border-b-2 border-gray-900 font-semibold">Spending</button>
-                              <button className="pb-1 text-gray-500">Compliance</button>
-                              <button className="pb-1 text-gray-500 flex items-center gap-0.5">
-                                Present
-                                <svg className="w-2.5 h-2.5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
-                                </svg>
-                              </button>
-                            </div>
-                          </div>
-                          <button className="bg-[#D4FF00] text-gray-900 px-4 py-1.5 rounded-lg font-semibold text-[9px]">
-                            Create card
-                          </button>
-                        </div>
-
-                        {/* Stats Cards */}
-                        <div className="grid grid-cols-2 gap-2 mb-3">
-                          <div className="bg-white border border-gray-200 rounded-lg p-2">
-                            <div className="text-[7px] text-gray-500 mb-0.5">Total spending</div>
-                            <div className="text-sm font-bold">$165,927.41</div>
-                          </div>
-                          <div className="bg-white border border-gray-200 rounded-lg p-2">
-                            <div className="text-[7px] text-gray-500 mb-0.5">Monthly avg</div>
-                            <div className="text-sm font-bold">$2,947.72</div>
-                          </div>
-                        </div>
-
-                        {/* Chart Area */}
-                        <div className="bg-gradient-to-br from-blue-50 to-gray-50 rounded-lg p-3 h-32 relative">
-                          <svg className="w-full h-full" viewBox="0 0 400 120" preserveAspectRatio="none">
-                            {/* Grid lines */}
-                            <line x1="0" y1="30" x2="400" y2="30" stroke="#e5e7eb" strokeWidth="0.5"/>
-                            <line x1="0" y1="60" x2="400" y2="60" stroke="#e5e7eb" strokeWidth="0.5"/>
-                            <line x1="0" y1="90" x2="400" y2="90" stroke="#e5e7eb" strokeWidth="0.5"/>
-                            
-                            {/* Stacked area chart paths */}
-                            <path d="M 0 100 Q 50 95 100 85 T 200 70 T 300 55 T 400 40 L 400 120 L 0 120 Z" fill="#93C5FD" opacity="0.7"/>
-                            <path d="M 0 95 Q 50 90 100 80 T 200 65 T 300 50 T 400 35 L 400 120 L 0 120 Z" fill="#86EFAC" opacity="0.7"/>
-                            <path d="M 0 90 Q 50 85 100 75 T 200 60 T 300 45 T 400 30 L 400 120 L 0 120 Z" fill="#FCA5A5" opacity="0.7"/>
-                            <path d="M 0 85 Q 50 80 100 70 T 200 55 T 300 40 T 400 25 L 400 120 L 0 120 Z" fill="#FDE047" opacity="0.7"/>
-                          </svg>
-                          
-                          {/* Legend */}
-                          <div className="absolute top-2 right-2 flex flex-col gap-0.5 text-[7px]">
-                            <div className="flex items-center gap-1">
-                              <div className="w-2 h-2 rounded-full bg-blue-400"></div>
-                              <span className="text-gray-600">Travel</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <div className="w-2 h-2 rounded-full bg-green-400"></div>
-                              <span className="text-gray-600">SaaS</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <div className="w-2 h-2 rounded-full bg-red-400"></div>
-                              <span className="text-gray-600">Marketing</span>
-                            </div>
-                            <div className="flex items-center gap-1">
-                              <div className="w-2 h-2 rounded-full bg-yellow-400"></div>
-                              <span className="text-gray-600">Operations</span>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
+                    <img
+                      src="/dashboard.png"
+                      alt="Codex Africa dashboard"
+                      className="absolute inset-0 h-full w-full object-contain bg-white"
+                      width={2048}
+                      height={1132}
+                      decoding="async"
+                      loading="eager"
+                      fetchPriority="high"
+                    />
                   </div>
                 </div>
               </div>
